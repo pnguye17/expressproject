@@ -3,6 +3,9 @@ const app = express();
 const port = 3000;
 
 
+require('./config/db')
+
+
 app.get("/", (req, res) => res.send("Hello this is the start of my app"));
 
 
