@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-// const connectionString = 'mongodb://localhost/bankingapp';
+const connectionString = 'mongodb://localhost/bankingapp';
 
-const connectionString = process.env.mongodURI || "mongodb+srv://admin:Pn0242862@cluster0-fz3qb.mongodb.net/test?retryWrites=true&w=majority"
+// const connectionString = process.env.mongodURI || "mongodb+srv://admin:Pn0242862@cluster0-fz3qb.mongodb.net/test?retryWrites=true&w=majority"
 
 mongoose.connect(connectionString, {
   useNewUrlParser: true,

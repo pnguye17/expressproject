@@ -3,26 +3,37 @@ const mongoose = require('mongoose')
 const UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     lastName: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
-    email: {
+    username: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        trim: true
     },
     password: {
         type: String, 
         required: true, 
         unique: true 
     },
-    date: {
-        type: Date,
-        default: Date.now
-    }
+    checkingAccounts: [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref: "CheckingAccount"
+        }
+    ],
+    savingsAccounts: [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : "SavingAccount"
+        }
+    ]
 })
 
 module.exports = User = mongoose.model('User', UserSchema)
