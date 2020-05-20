@@ -2,8 +2,9 @@ const User = require("../model/User");
 
 module.exports = {
   index: async (req, res) => {
+      const x = "Sam"
       try {
-        const foundUser = await User.find();
+        const foundUser = await User.find({firstName: x})
         console.log("data from mongo",foundUser)
         res.status(200).json(foundUser)
       } catch (err) {
