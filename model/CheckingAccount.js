@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const checkingAccountSchema = mongoose.Schema({
+    name: {
+        type: String,
+        default: "Checking"
+    },
     balance: {
         type: Number,
         default: 0

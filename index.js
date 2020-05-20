@@ -6,6 +6,7 @@ const port = 3000;
 //import routes
 const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth")
+const checkingRouter = require("./routes/checkingAccount")
 
 
 //connect db
@@ -19,6 +20,7 @@ app.use(express.json());
 //set routes
 app.use(express.static("public"))
 app.use("/api", userRouter);
+app.use("/api", checkingRouter)
 app.use("/", authRouter)
 
 app.get("/", (req, res) => {

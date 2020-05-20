@@ -22,5 +22,21 @@ router.post("/register", async (req, res) => {
         })
     }
 })
+router.get("/login", async (req, res) => {
+    res.render('home/login.ejs')
+
+})
+router.post("/login", async (req, res) => {
+    const { username, password} = req.body
+    try {
+        const foundUser = await User.findOne({username : 'username', password : 'password'})
+        console.log("database located the user", foundUser)
+        res.status(200).render("users/index.ejs", {
+            user: foundUser
+        })
+    } catch (err) {
+        console.log(err)
+    }
+})
 
 module.exports = router
