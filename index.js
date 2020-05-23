@@ -1,6 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser")
+const morgan = require("morgan")
 const app = express();
+const logger = require("./logger")
+const session = require("express-session")
 const port = 3000;
 
 //import routes
@@ -14,8 +17,16 @@ require('./config/db')
 
 //set view engine
 app.set("view engine", "ejs")
+app.use(morgan("dev"))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(
+    session({
+      secret: "random",
+      resave: false,
+      saveUninitialized: false
+    })
+  );
 
 //set routes
 app.use(express.static("public"))
@@ -29,4 +40,4 @@ app.get("/", (req, res) => {
 
 
 
-app.listen(port, (req, res) =>  console.log("the app is running"));
+app.listen(port, (req, res) => logger.write(`The app is running on ${port}`))

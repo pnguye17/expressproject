@@ -2,11 +2,9 @@ const User = require("../model/User");
 
 module.exports = {
   index: async (req, res) => {
-      const x = "Sam"
       try {
-        const foundUser = await User.find({firstName: x})
-        console.log("data from mongo",foundUser)
-        res.status(200).json(foundUser)
+        const foundUser = await User.find().populate("checkingAccounts").then(users => res.status(200).json(users))
+  
       } catch (err) {
         console.log(err);
         res.status(500).json({
