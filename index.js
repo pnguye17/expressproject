@@ -15,8 +15,9 @@ const checkingRouter = require("./routes/checkingAccount")
 //connect db
 require('./config/db')
 
+
 //set view engine
-app.set("view engine", "ejs")
+app.set("view engine", "ejs");
 app.use(morgan("dev"))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());

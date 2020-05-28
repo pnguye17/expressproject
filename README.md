@@ -14,3 +14,8 @@ Things to do:
     ? do we need a client when we have ejs?
 4. Node
     set up server --done
+
+
+EXTRAS
+
+ADD API DOCUMENTATION? LOOK INTO COMPODOC NEXT.JS
